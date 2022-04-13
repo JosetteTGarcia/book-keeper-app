@@ -1,0 +1,25 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "East of Eden",
+      "author": "John Steinbeck",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg/800px-East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg",
+      "completed": true,
+      "dateStarted": "date",
+      "dateCompleted": "date2",
+      "starReview": "stars",
+      "comments": "comments"
+    },
+    {
+      "id": 1,
+      "title": "Grapes of Wrath",
+      "author": "John Steinbeck",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Grapes_of_Wrath_%281939_1st_ed_cover%29.jpg/220px-The_Grapes_of_Wrath_%281939_1st_ed_cover%29.jpg",
+      "dateStarted": "date",
+      "dateCompleted": "date2",
+      "starReview": "stars",
+      "comments": "comments"
+    }
+  ]
+}
