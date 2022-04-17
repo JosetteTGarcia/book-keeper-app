@@ -26,8 +26,7 @@ function App() {
     localStorage.removeItem('user_id');
   }
 
-
-
+  //retrieve local storage of loggedin user and pull data for this user
   useEffect(() => {
     const userID = localStorage.getItem('user_id');
     if(userID && !loggedIn){
@@ -41,10 +40,10 @@ function App() {
       <Router>
         <NavBar loggedIn={loggedIn} logoutUser={logoutUser}/>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home currentUser={currentUser}  loggedIn={loggedIn}/>} />
           <Route path="/signup" element={<Signup loginUser={loginUser} />} />
           <Route path="/login" element={<Login loginUser={loginUser} />} />
-          <Route path="/books" element={<BookList />} />
+          { /* MAY NOT USE: <Route path="/books" element={<BookList />} /> */} 
           <Route path="/books/new" element={<BookForm />} />
         </Routes>
       </Router>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-function BookCard(){
+function BookCard({book}){
   
   
   return (
     <div>
-      BookCard
+      <h3>{book.title}</h3>
     </div>
   )
 

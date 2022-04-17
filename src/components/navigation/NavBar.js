@@ -11,7 +11,7 @@ function NavBar({loggedIn, logoutUser}){
     return (
       <ul>
         <li><Link to="/"> Home </Link></li>
-        <li><Link to="/books"> All Books </Link></li>
+        {/* MAY NOT USE: <li><Link to="/books"> All Books </Link></li> */}
         <li><Link to="/books/new"> Add New Book </Link></li>
         <li><a href="#" onClick={logout}> Logout </a></li>
       </ul>
