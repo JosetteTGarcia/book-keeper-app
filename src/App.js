@@ -44,7 +44,7 @@ function App() {
           <Route path="/signup" element={<Signup loginUser={loginUser} />} />
           <Route path="/login" element={<Login loginUser={loginUser} />} />
           { /* MAY NOT USE: <Route path="/books" element={<BookList />} /> */} 
-          <Route path="/books/new" element={<BookForm />} />
+          <Route path="/books/new" element={<BookForm currentUser={currentUser} loggedIn={loggedIn} />}  />
         </Routes>
       </Router>
     
