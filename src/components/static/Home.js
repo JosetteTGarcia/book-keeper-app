@@ -9,7 +9,9 @@ function Home({currentUser, loggedIn}){
   useEffect(() => {
     fetch(baseURL + '/books')
     .then(resp => resp.json())
-    .then((data) => setBookData(data))
+    .then((data) => {
+      const userBooks = data.filter(book => book.user_id === currentUser.id)
+      setBookData(userBooks)})
   }, [])
   
   const bookList = bookData.map((book) => (
