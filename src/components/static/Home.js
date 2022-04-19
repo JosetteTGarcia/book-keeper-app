@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { baseURL } from '../../Globals';
 import BookCard from '../books/BookCard';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 
 function Home({currentUser, loggedIn}){
@@ -20,20 +23,36 @@ function Home({currentUser, loggedIn}){
 
 if(loggedIn) {
     return (
-    <div>
+      <React.Fragment>
+      <CssBaseline />
+      <Container fixed>
+      <Box sx={{ bgcolor: 'white', height: '100vh'}}>
       <h1>{currentUser.username}'s Home Page</h1>
+      <Box sx={{ bgcolor: 'white', height: '100vh'}}>
       {bookList}
-    </div>)
+      </Box>
+      </Box>
+      </Container>
+      </React.Fragment>
+    )
   } else {
     return (
-    <div>
-      <h1>
+
+      <React.Fragment>
+      <CssBaseline />
+      <Container fixed>
+        <Box sx={{ bgcolor: 'white', height: '100vh'}}>
+        <h1>
         Welcome to Book Keeper!
-      </h1>
-      <p>
-      If you have an account, please log in. If you are new to Book Keeper, please make an account to get started!
-      </p>
-    </div>
+        </h1>
+        <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+        <p>
+        If you have an account, please log in. If you are new to Book Keeper, please make an account to get started!
+        </p>
+        </Box>
+        </Box>
+      </Container>
+    </React.Fragment>
     )
   }
 }
