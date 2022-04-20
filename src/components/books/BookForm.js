@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
+import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
 import Typography from '@mui/material/Typography';
 import { baseURL } from '../../Globals';
 
@@ -66,42 +68,80 @@ function BookForm({currentUser, loggedIn}){
 
   return (
     <div>
-      <h1> Add a New Book to Your List:</h1>
-      <form onSubmit={handleSubmit}>
+      <h1> Add a New Book to Your List</h1>
+<Box
+      component="form"
+      sx={{
+        "& .MuiTextField-root": { m: 1, width: "25ch" }
+      }}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
+      <div>
+        <TextField
+          id="standard-multiline-flexible"
+          name="title"
+          label="Title"
+          multiline
+          maxRows={4}
+          value={formData.title}
+          onChange={handleChange}
+          variant="standard"
+        /> 
+        <TextField
+          id="standard-multiline-flexible"
+          label="Author"
+          name="author"
+          multiline
+          maxRows={4}
+          value={formData.author}
+          onChange={handleChange}
+          variant="standard"
+        /> <br />
+        <TextField
+          id="standard-multiline-flexible"
+          label="Cover Image - URL"
+          name="image"
+          multiline
+          maxRows={4}
+          value={formData.image}
+          onChange={handleChange}
+          variant="standard"
+        />  <br />
+        <TextField
+          id="standard-multiline-flexible"
+          label="Date Started"
+          name="dateStarted"
+          multiline
+          maxRows={4}
+          value={formData.dateStarted}
+          onChange={handleChange}
+          variant="standard"
+        /> <br />
+        <label> Finished reading? (Check if yes, continue to submition if no!)
+        <Checkbox 
+          id="completed"
+          name="completed"
+          value={formData.completed}
+          label="Completed Book?" 
+          onChange={handleChange}
+        /> 
+        </label> <br />
+        </div>
 
-        <label>
-          Title:
-          <input type="text" name="title" id="name" value={formData.title} onChange={handleChange}/>
-        </label> <br/>
-
-        <label>
-          Author:
-          <input type="text" name="author" id="author" value={formData.author} onChange={handleChange}/>
-        </label> <br/>
-
-        <label>
-          Add Cover Image (URL):
-          <input type="text" name="image" id="image" value={formData.image} onChange={handleChange}/>
-        </label> <br/>
-
-        <label>
-          Date Started:
-          <input type="date" name="dateStarted" id="startedDate" value={formData.dateStarted} onChange={handleChange}/>
-        </label> <br/>
-
-        <label>
-        Finished reading? (Check if yes, continue to submition if no!)
-        <input type="checkbox" name="completed" id="completed" value={formData.completed} onChange={handleChange}/>
-        </label> <br/>
-       
-       
-       { formData.completed ? 
-       <>
-        <label>
-          Date Completed:
-          <input type="date" name="dateCompleted" id="dateCompleted" value={formData.dateCompleted} onChange={handleChange}/>
-        </label> <br/>
-
+        { formData.completed ? 
+        <div>
+        <TextField
+          id="standard-multiline-flexible"
+          label="Date Completed"
+          name="dateCompleted"
+          multiline
+          maxRows={4}
+          value={formData.dateCompleted}
+          onChange={handleChange}
+          variant="standard"
+        /> <br />
         <label>
           Rating: 
         <Rating
@@ -110,16 +150,23 @@ function BookForm({currentUser, loggedIn}){
           value={formData.rating}
           id="rating"
           onChange={(handleChange)}
-        /> </label> <br/>
-
-        <label>
-          Review/Comments:
-          <input type="text" name="comments" id="comments" value={formData.comments} onChange={handleChange}/>
-        </label> <br/> </>
-        : null}
+        /> </label> <br />
+        <TextField
+          id="standard-multiline-flexible"
+          label="Comments/Notes"
+          name="comments"
+          multiline
+          maxRows={7}
+          value={formData.comments}
+          onChange={handleChange}
+          variant="standard"
+        />
+        </div>
+        : 
+        null}
         
         <input type="submit" value="Submit" />
-    </form>
+    </Box>
     </div>
   )
 
@@ -137,3 +184,4 @@ export default BookForm;
 // "dateCompleted": "date2",
 // "starReview": "stars",
 // "comments": "comments"
+

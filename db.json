@@ -17,22 +17,34 @@
       "author": "John Steinbeck",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg/800px-East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg",
       "completed": false,
-      "dateStarted": "date",
-      "dateCompleted": "date2",
-      "starReview": "stars",
+      "dateStarted": "2022-04-12",
+      "dateCompleted": "2022-04-20",
+      "rating": 0,
       "comments": "comments"
     },
     {
-      "id": 1,
+      "id": 2,
       "user_id": 1,
       "title": "Grapes of Wrath",
       "author": "John Steinbeck",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/The_Grapes_of_Wrath_%281939_1st_ed_cover%29.jpg",
-      "completed": false,
-      "dateStarted": "date",
-      "dateCompleted": "date2",
-      "starReview": "stars",
+      "completed": true,
+      "dateStarted": "2022-04-12",
+      "dateCompleted": "2022-04-20",
+      "rating": 5,
       "comments": "comments"
+    },
+    {
+      "user_id": 2,
+      "title": "A court of thorns and roses",
+      "author": "Sarah J. Maas",
+      "image": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781408857861.jpg",
+      "completed": true,
+      "dateStarted": "2022-04-12",
+      "dateCompleted": "2022-04-20",
+      "rating": 4,
+      "comments": "Love this book!",
+      "id": 3
     }
   ]
 }
