@@ -4,7 +4,6 @@ import {baseURL} from './Globals.js';
 import Home from './components/static/Home'
 import Signup from './components/sessions/Signup'
 import Login from './components/sessions/Login'
-import BookList from './components/books/BookList'
 import BookForm from './components/books/BookForm'
 import NavBar from './components/navigation/NavBar'
 import './App.css';
