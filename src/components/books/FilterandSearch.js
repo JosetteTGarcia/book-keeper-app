@@ -1,14 +1,52 @@
 import React from 'react'
+//Switch Button for "Show All Books"
+import Switch from '@mui/material/Switch';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
-function Filter(){
+//Filter Drop Down menu
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
+
+function Filters({ filter, setFilter, setshowOnlyCurrentBooks, showOnlyCurrentBooks}){
   
+  const handleFilterChange = (event) => {
+    event.preventDefault()
+    setFilter(event.target.value);
+  };
+
+  function handleSwitchClick(){
+    setshowOnlyCurrentBooks(!showOnlyCurrentBooks)
+  }
   
   return (
     <div>
-      Filter
-    </div>
+    <FormGroup>
+              <FormControlLabel control={<Switch />} label="Show All Books" onClick={handleSwitchClick}/>
+            </FormGroup>
+            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+            <InputLabel id="demo-select-small">Sory By</InputLabel>
+              <Select
+                labelId="demo-select-small"
+                id="demo-select-small"
+                value={filter}
+                label="filter"
+                onChange={handleFilterChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value="rating" >Rating: Highest - Lowest</MenuItem>
+                <MenuItem value="newest" >Newest - Oldest</MenuItem>
+                <MenuItem value="oldest">Oldest - Newest</MenuItem>
+              </Select>
+          </FormControl>
+      </div>
   )
 
 }
 
-export default Filter;
+export default Filters;

@@ -45,6 +45,18 @@
       "rating": 4,
       "comments": "Love this book!",
       "id": 3
+    },
+    {
+      "user_id": 2,
+      "title": "It Ends with Us",
+      "author": "Colleen Hoover",
+      "image": "https://productimages.worldofbooks.com/1471156265.jpg",
+      "completed": false,
+      "dateStarted": "04/20/22",
+      "dateCompleted": "",
+      "rating": 0,
+      "comments": "",
+      "id": 4
     }
   ]
 }
