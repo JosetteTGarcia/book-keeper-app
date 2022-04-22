@@ -15,6 +15,9 @@ function BookCard({book}){
     setShowDetails((prevShowDetails) => !prevShowDetails);
   }
   
+  function handleCompleteClick(){
+    
+  }
   if (isHidden) return null;
 
   return (
@@ -48,7 +51,11 @@ function BookCard({book}){
       </Button>
 
       {(book.completed) ? null : <>
-      <Button size="small" color="primary">
+      <Button 
+        size="small" 
+        color="primary"
+        onCLick="handleCompleteClick"
+        >
         Complete
       </Button>
       </>}

@@ -11,48 +11,19 @@ import Grid from '@mui/material/Grid';
 
 
 
-function Home({currentUser, loggedIn}){
+function Home({currentUser, loggedIn, books}){
   const [showOnlyCurrentBooks, setshowOnlyCurrentBooks] = useState(true)
-  const [bookData, setBookData] = useState([])
   const [sortBy, setSortBy] = useState("newest");
 
 
-  useEffect(() => {
-    fetch(baseURL + '/books')
-    .then(resp => resp.json())
-    .then((data) => {
-      if(showOnlyCurrentBooks){
-        const userBooks = data.filter(book => (book.user_id === currentUser.id && !book.completed))
-        .sort((book1 , book2) => {
-          if (sortBy === "rating") {
-            return book2.rating - book2.rating
-          } else if (sortBy === "oldest"){
-            return book2.dateStarted - book1.dateStarted;
-          } else {
-            return book1.dateStarted - book2.dateStarted;
-          }
-        })
-      setBookData(userBooks)
-      } else {
-        const userBooks = data.filter(book => book.user_id === currentUser.id)
-        .sort((book1 , book2) => {
-          if (sortBy === "rating") {
-            return book2.rating - book1.rating
-          } else if (sortBy === "oldest"){
-            return book2.dateStarted - book1.dateStarted;
-          } else {
-            return book1.dateStarted - book2.dateStarted;
-          }
-        })
-        setBookData(userBooks);
-      }})
-  })
+
   
-  const bookList = bookData.map((book) => (
+  const bookList = books.map((book) => (
       <Grid item xs={12} sm={6} md= {4} key={book.id}>
         <BookCard key={book.id} book={book}/> 
       </Grid>
   ))
+
 
 
 if(loggedIn) {

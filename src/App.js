@@ -11,14 +11,28 @@ import './App.css';
 function App() {
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false);
+  const [bookData, setBookData] = useState([])
 
 
   const loginUser = user => {
     setCurrentUser(user);
     setLoggedIn(true)
     localStorage.setItem('user_id', user.id); //logn if needing log out > remove item
+    fetchBooks(user);
   }
   
+  const fetchBooks = user => {
+    fetch(baseURL + '/books')
+    .then(resp => resp.json())
+    .then(data => {
+      const userBooks = data.filter(book => book.user_id === user.id);
+      setBookData(userBooks)
+      console.log(userBooks)
+    })
+  }
+
+
+
   const logoutUser = () => {
     setCurrentUser({});
     setLoggedIn(false)
@@ -39,7 +53,7 @@ function App() {
       <Router>
         <NavBar loggedIn={loggedIn} logoutUser={logoutUser}/>
         <Routes>
-          <Route path="/" element={<Home currentUser={currentUser}  loggedIn={loggedIn}/>} />
+          <Route path="/" element={<Home currentUser={currentUser}  loggedIn={loggedIn} books={bookData}/>} />
           <Route path="/signup" element={<Signup loginUser={loginUser} />} />
           <Route path="/login" element={<Login loginUser={loginUser} />} />
           { /* MAY NOT USE: <Route path="/books" element={<BookList />} /> */} 
