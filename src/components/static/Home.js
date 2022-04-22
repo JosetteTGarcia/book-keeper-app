@@ -14,7 +14,7 @@ import Grid from '@mui/material/Grid';
 function Home({currentUser, loggedIn}){
   const [showOnlyCurrentBooks, setshowOnlyCurrentBooks] = useState(true)
   const [bookData, setBookData] = useState([])
-  const [filter, setFilter] = useState("");
+  const [sortBy, setSortBy] = useState("newest");
 
 
   useEffect(() => {
@@ -23,12 +23,29 @@ function Home({currentUser, loggedIn}){
     .then((data) => {
       if(showOnlyCurrentBooks){
         const userBooks = data.filter(book => (book.user_id === currentUser.id && !book.completed))
-        setBookData(userBooks)
+        .sort((book1 , book2) => {
+          if (sortBy === "rating") {
+            return book2.rating - book2.rating
+          } else if (sortBy === "oldest"){
+            return book2.dateStarted - book1.dateStarted;
+          } else {
+            return book1.dateStarted - book2.dateStarted;
+          }
+        })
+      setBookData(userBooks)
       } else {
         const userBooks = data.filter(book => book.user_id === currentUser.id)
+        .sort((book1 , book2) => {
+          if (sortBy === "rating") {
+            return book2.rating - book1.rating
+          } else if (sortBy === "oldest"){
+            return book2.dateStarted - book1.dateStarted;
+          } else {
+            return book1.dateStarted - book2.dateStarted;
+          }
+        })
         setBookData(userBooks);
-      }
-    })
+      }})
   })
   
   const bookList = bookData.map((book) => (
@@ -37,14 +54,6 @@ function Home({currentUser, loggedIn}){
       </Grid>
   ))
 
-  useEffect((bookData) => {
-    if(filter === "rating"){
-      const rankedBooks = bookData.sort((a , b) => a.rating - b.rating)
-      setBookData(rankedBooks)
-    }
-  }, [filter])
-
-  
 
 if(loggedIn) {
     return (
@@ -55,8 +64,8 @@ if(loggedIn) {
               <h1>{currentUser.username}'s Home Page</h1>
             </Box>
             <Filters 
-              filter={filter}
-              setFilter={setFilter}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
               showOnlyCurrentBooks={showOnlyCurrentBooks}
               setshowOnlyCurrentBooks={setshowOnlyCurrentBooks}
             />

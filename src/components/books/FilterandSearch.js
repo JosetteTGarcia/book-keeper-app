@@ -11,11 +11,11 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-function Filters({ filter, setFilter, setshowOnlyCurrentBooks, showOnlyCurrentBooks}){
+function Filters({ sortBy, setSortBy, setshowOnlyCurrentBooks, showOnlyCurrentBooks}){
   
   const handleFilterChange = (event) => {
     event.preventDefault()
-    setFilter(event.target.value);
+    setSortBy(event.target.value);
   };
 
   function handleSwitchClick(){
@@ -32,8 +32,8 @@ function Filters({ filter, setFilter, setshowOnlyCurrentBooks, showOnlyCurrentBo
               <Select
                 labelId="demo-select-small"
                 id="demo-select-small"
-                value={filter}
-                label="filter"
+                value={sortBy}
+                label="sortBy"
                 onChange={handleFilterChange}
               >
                 <MenuItem value="">

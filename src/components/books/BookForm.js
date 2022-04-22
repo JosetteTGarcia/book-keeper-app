@@ -111,7 +111,7 @@ function BookForm({currentUser, loggedIn}){
         />  <br />
         <TextField
           id="standard-multiline-flexible"
-          label="Date Started"
+          label="Date Started (YYYY-MM-DD)"
           name="dateStarted"
           multiline
           maxRows={4}
@@ -134,7 +134,7 @@ function BookForm({currentUser, loggedIn}){
         <div>
         <TextField
           id="standard-multiline-flexible"
-          label="Date Completed"
+          label="Date Completed (YYYY-MM-DD)"
           name="dateCompleted"
           multiline
           maxRows={4}
