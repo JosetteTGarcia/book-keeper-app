@@ -17,6 +17,7 @@ function BookCard({
 })
 {
   const [showDetails, setShowDetails] = useState(false);
+  const [editBook, setEditBook] = useState(false)
  
 
 
@@ -27,6 +28,7 @@ function BookCard({
 
   const handleClick = () => {
     onSelectBook(book)
+    setEditBook(!editBook)
   }
 
  
@@ -41,7 +43,7 @@ function BookCard({
 
   return (
  <> 
-  {book !== selectedBook ? 
+  {!editBook ? 
   
     <Card sx={{ maxWidth: 200}}>
     <CardActionArea onClick={handleMainCardClick}>
@@ -80,7 +82,7 @@ function BookCard({
   </Card> 
 : 
 
-  <EditBookCard book={selectedBook} onChangeForm={handleEditForm} onBookEdit={onBookEdit}/> }
+  <EditBookCard book={selectedBook} onChangeForm={handleEditForm} onBookEdit={onBookEdit} onComplete={setEditBook}/> }
 
 </>
 )

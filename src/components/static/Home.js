@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import BookCard from '../books/BookCard';
 import Filters from '../books/FilterandSearch'
 
@@ -7,7 +7,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 
 
 
@@ -38,19 +37,19 @@ function Home({
     })
 
 
-    
-    
-  const finalBookList = booksFiltered.map((book) => (
-    <Grid item xs={12} sm={6} md= {4} key={book.id}>
-      <BookCard 
-      key={book.id} 
-      book={book} 
-      onEditBook = {onEditBook}
-      selectedBook={selectedBook}
-      onSelectBook={setSelectedBook}
-      /> 
-    </Grid>
-  ))
+ 
+    const finalBookList = booksFiltered.map((book) => (
+      <Grid item xs={12} sm={6} md= {4} key={book.id}>
+        <BookCard 
+        key={book.id} 
+        book={book} 
+        onEditBook = {onEditBook}
+        selectedBook={selectedBook}
+        onSelectBook={setSelectedBook}
+        /> 
+      </Grid>
+    ))
+ 
 
 
 if(loggedIn) {

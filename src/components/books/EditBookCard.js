@@ -8,7 +8,7 @@ import Rating from '@mui/material/Rating';
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 
-function EditBookCard({book, onChangeForm, onBookEdit}){
+function EditBookCard({book, onChangeForm, onBookEdit, onComplete}){
 
 
 
@@ -35,7 +35,8 @@ function EditBookCard({book, onChangeForm, onBookEdit}){
       body: JSON.stringify(book),
     })
       .then((r) => r.json())
-      .then(onBookEdit);
+      .then(onBookEdit)
+      .then(onComplete(false))
   }
   
 
