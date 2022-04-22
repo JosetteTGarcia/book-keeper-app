@@ -11,21 +11,24 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-function Filters({ sortBy, setSortBy, setshowOnlyCurrentBooks, showOnlyCurrentBooks}){
+function Filters({ sortBy, onChangeSortBy, onChange, showAllBooks}){
   
   const handleFilterChange = (event) => {
     event.preventDefault()
-    setSortBy(event.target.value);
+    onChangeSortBy(event.target.value);
   };
 
-  function handleSwitchClick(){
-    setshowOnlyCurrentBooks(!showOnlyCurrentBooks)
+  function handleSwitchClick(event){
+    onChange(event.target.checked)
   }
   
   return (
     <div>
     <FormGroup>
-              <FormControlLabel control={<Switch />} label="Show All Books" onClick={handleSwitchClick}/>
+              <FormControlLabel 
+              control={<Switch />} 
+              checked={showAllBooks}
+              label="Show All Books" onClick={handleSwitchClick}/>
             </FormGroup>
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
             <InputLabel id="demo-select-small">Sory By</InputLabel>
