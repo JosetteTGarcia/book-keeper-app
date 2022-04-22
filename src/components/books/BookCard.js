@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import ExtraBookInfo from './ExtraBookInfo';
 import EditBookCard from './EditBookCard';
 import Card from '@mui/material/Card';
@@ -6,38 +6,42 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions} from '@mui/material';
-import { Link } from 'react-router-dom';
 
 
 
-function BookCard({book}){
-
+function BookCard({
+  book, 
+  onBookEdit, 
+  selectedBook, 
+  onSelectBook,
+})
+{
   const [showDetails, setShowDetails] = useState(false);
-  const [selectedBook, setSelectedBook] = useState(null);
-  const [editBook, setEditBook] = useState(false)
+ 
 
-  function handleEditForm(name, value) {
-    setSelectedBook({
-      ...selectedBook,
-      [name]: value,
-    });
-  }
 
   function handleMainCardClick() {
     setShowDetails((prevShowDetails) => !prevShowDetails);
   }
   
-  function handleClick(){
-    setSelectedBook(book);
-    setEditBook(!editBook)
+
+  const handleClick = () => {
+    onSelectBook(book)
   }
 
+ 
+  function handleEditForm(name, value) {
+    onSelectBook({
+      ...selectedBook,
+      [name]: value,
+    });
+  }
 
   
 
   return (
  <> 
-  {!editBook ? 
+  {book !== selectedBook ? 
   
     <Card sx={{ maxWidth: 200}}>
     <CardActionArea onClick={handleMainCardClick}>
@@ -76,7 +80,7 @@ function BookCard({book}){
   </Card> 
 : 
 
-  <EditBookCard book={selectedBook} onChangeForm={handleEditForm}/> }
+  <EditBookCard book={selectedBook} onChangeForm={handleEditForm} onBookEdit={onBookEdit}/> }
 
 </>
 )

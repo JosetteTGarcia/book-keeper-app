@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { Button, CardActions } from '@mui/material';
+import { Button} from '@mui/material';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 
-function EditBookCard({book, onChangeForm}){
+function EditBookCard({book, onChangeForm, onBookEdit}){
 
 
 
@@ -17,19 +17,25 @@ function EditBookCard({book, onChangeForm}){
       
   }
     
-  function handleClick(){
-    console.log("ugh2")
+  function handleRatingChange(event){
+    onChangeForm(event.target.name, parseInt(event.target.value))
   }
   
   function handleChange(event){
     onChangeForm(event.target.name, event.target.value);
   }
 
-  function handleSubmit(){
-    console.log("shut up")
-  }
-
-  function handleSubmit(event) {
+  function handleSubmit(event){
+    event.preventDefault();
+    fetch(`http://localhost:3000/books/${book.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(book),
+    })
+      .then((r) => r.json())
+      .then(onBookEdit);
   }
   
 
@@ -119,9 +125,9 @@ function EditBookCard({book, onChangeForm}){
         <Rating
           type="number"
           name="rating"
-          defaultValue={book.rating}
+          value={book.rating}
           id="rating"
-          onChange={(handleChange)}
+          onChange={handleRatingChange}
         /> </label> <br />
         <TextField
           id="standard-multiline-flexible"
@@ -137,7 +143,6 @@ function EditBookCard({book, onChangeForm}){
 <Button 
         size="small" 
         color="primary" 
-        onClick={handleClick}
         type="submit" value="Submit"
       >
         Complete Edits

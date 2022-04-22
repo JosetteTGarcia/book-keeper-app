@@ -12,6 +12,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false);
   const [bookData, setBookData] = useState([])
+  
 
 
   const loginUser = user => {
@@ -27,7 +28,6 @@ function App() {
     .then(data => {
       const userBooks = data.filter(book => book.user_id === user.id);
       setBookData(userBooks)
-      console.log(userBooks)
     })
   }
 
@@ -49,14 +49,29 @@ function App() {
     }
   },[loggedIn])
 
+  function handleEditBook(updatedBook) {
+    const updatedBooks = bookData.map((book) =>
+      book.id === updatedBook.id ? updatedBook : book
+    );
+    setBookData(updatedBooks);
+  }
+
+
+
   return (
       <Router>
         <NavBar loggedIn={loggedIn} logoutUser={logoutUser}/>
         <Routes>
-          <Route path="/" element={<Home currentUser={currentUser}  loggedIn={loggedIn} books={bookData}/>} />
+          <Route path="/" 
+            element={<Home 
+            currentUser={currentUser}  
+            loggedIn={loggedIn} 
+            books={bookData}
+            onEditBook = {handleEditBook}
+            />} 
+          />
           <Route path="/signup" element={<Signup loginUser={loginUser} />} />
           <Route path="/login" element={<Login loginUser={loginUser} />} />
-          { /* MAY NOT USE: <Route path="/books" element={<BookList />} /> */} 
           <Route path="/books/new" element={<BookForm currentUser={currentUser} loggedIn={loggedIn} />}  />
         </Routes>
       </Router>
