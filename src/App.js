@@ -50,6 +50,11 @@ function App() {
     }
   },[loggedIn, bookData])
 
+  const addBook = book => {
+    // adds the book to the state
+    setBookData([...bookData, book])
+  }
+
   function handleEditBook(updatedBook) {
     const updatedBooks = bookData.map((book) =>
       book.id === updatedBook.id ? updatedBook : book
@@ -92,7 +97,7 @@ function App() {
           />
           <Route path="/signup" element={<Signup loginUser={loginUser} />} />
           <Route path="/login" element={<Login loginUser={loginUser} />} />
-          <Route path="/books/new" element={<BookForm currentUser={currentUser} loggedIn={loggedIn} />}  />
+          <Route path="/books/new" element={<BookForm currentUser={currentUser} addBook={addBook} loggedIn={loggedIn} />}  />
         </Routes>
       </Router>
     

@@ -19,7 +19,7 @@ function Signup({loginUser}){
     .then(resp => resp.json())
     .then(data => 
       {loginUser(data);
-      navigate('/books')
+      navigate('/')
     })
   }
   return (

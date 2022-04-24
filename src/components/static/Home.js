@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import BookCard from '../books/BookCard';
 import Filters from '../books/FilterandSearch'
 
@@ -69,13 +69,19 @@ if(loggedIn) {
           <Container fixed>
             <Box sx={{ bgcolor: 'white', height: '10vh', flexGrow: 1}}>
               <h1>{currentUser.username}'s Home Page</h1>
-            </Box>
+              {books === null ? 
+              null :
+              <p> Welcome! It looks like you do not have any current books in your library!<br/> To get started tracking, add a new book <a href="/books/new">here</a>!</p>
+            }
+            </Box> <br/> <br/>
+            <Box>
             <Filters 
               sortBy={sortBy}
               onChangeSortBy={onFilterChange}
               onChange={setShowAllBooks}
               showAllBooks={showAllBooks}
             />
+            </Box>
           </Container>
         <Grid container spacing={2}>
           {finalBookList}

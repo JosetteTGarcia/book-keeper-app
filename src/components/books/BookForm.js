@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
-import Typography from '@mui/material/Typography';
 import { baseURL } from '../../Globals';
 
-function BookForm({currentUser, loggedIn}){
+function BookForm({currentUser, loggedIn, addBook}){
+  const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
     user_id: 0,
@@ -60,7 +61,11 @@ function BookForm({currentUser, loggedIn}){
       body: JSON.stringify(formData)
     })
     .then(resp => resp.json())
-    .then(data => console.log(data))
+    .then(data => {
+      addBook(data)
+      navigate("/")
+      console.log(data)
+    })
   }
   
 

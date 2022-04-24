@@ -7,6 +7,14 @@
     {
       "username": "JosetteFirstTest",
       "id": 2
+    },
+    {
+      "username": "Oliver01",
+      "id": 3
+    },
+    {
+      "username": "BobTheFirst",
+      "id": 4
     }
   ],
   "books": [
@@ -16,10 +24,10 @@
       "title": "East of Eden",
       "author": "John Steinbeck",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg/800px-East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg",
-      "completed": false,
-      "dateStarted": "2022-04-12",
+      "completed": true,
+      "dateStarted": "2022-04-01",
       "dateCompleted": "2022-04-20",
-      "rating": 0,
+      "rating": 4,
       "comments": "comments"
     },
     {
@@ -29,34 +37,82 @@
       "author": "John Steinbeck",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/The_Grapes_of_Wrath_%281939_1st_ed_cover%29.jpg",
       "completed": true,
-      "dateStarted": "2022-04-12",
+      "dateStarted": "2022-04-02",
       "dateCompleted": "2022-04-20",
-      "rating": 5,
+      "rating": 4,
       "comments": "comments"
     },
     {
-      "user_id": 2,
+      "user_id": 1,
       "title": "A court of thorns and roses",
       "author": "Sarah J. Maas",
       "image": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781408857861.jpg",
-      "completed": true,
-      "dateStarted": "2022-04-12",
+      "completed": false,
+      "dateStarted": "2022-04-03",
       "dateCompleted": "2022-04-20",
-      "rating": 4,
-      "comments": "Love this book!",
+      "rating": 5,
+      "comments": "Love this book! x2-",
       "id": 3
     },
     {
-      "user_id": 2,
+      "user_id": 1,
       "title": "It Ends with Us",
       "author": "Colleen Hoover",
       "image": "https://productimages.worldofbooks.com/1471156265.jpg",
+      "completed": true,
+      "dateStarted": "2022-04-04",
+      "dateCompleted": "2022-04-04",
+      "rating": 3,
+      "comments": "hello, this was edited!",
+      "id": 4
+    },
+    {
+      "user_id": 1,
+      "title": "Atomic Habits",
+      "author": "James Clear ",
+      "image": "https://www.egypttoday.com/siteimages/ArticleImgs/2022/1/12/454426-Atomic-habits.jpg",
+      "completed": true,
+      "dateStarted": "2022-04-15",
+      "dateCompleted": "2022-08-24",
+      "rating": 4,
+      "comments": "edited x111",
+      "id": 5
+    },
+    {
+      "user_id": 4,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81aY1lxk+9L._AC._SR360,460.jpg",
       "completed": false,
-      "dateStarted": "04/20/22",
+      "dateStarted": "2022-04-26",
       "dateCompleted": "",
       "rating": 0,
       "comments": "",
-      "id": 4
+      "id": 6
+    },
+    {
+      "user_id": 4,
+      "title": "East of Eden ",
+      "author": "John Steinbeck",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg",
+      "completed": false,
+      "dateStarted": "2022-08-23",
+      "dateCompleted": "",
+      "rating": 0,
+      "comments": "",
+      "id": 7
+    },
+    {
+      "user_id": 4,
+      "title": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "image": "https://i.pinimg.com/originals/c8/7b/0f/c87b0f154ab3b6bf4ef875b97ba392e7.jpg",
+      "completed": false,
+      "dateStarted": "2022-01-25",
+      "dateCompleted": "",
+      "rating": 0,
+      "comments": "",
+      "id": 8
     }
   ]
 }
