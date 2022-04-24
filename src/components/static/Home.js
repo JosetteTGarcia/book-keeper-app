@@ -68,12 +68,18 @@ if(loggedIn) {
         <CssBaseline />
           <Container fixed>
             <Box sx={{ bgcolor: 'white', height: '10vh', flexGrow: 1}}>
-              <h1>{currentUser.username}'s Home Page</h1>
-              {books === null ? 
+              <h1>
+              <span role="img" aria-label="books">📚</span>
+                {currentUser.username}'s Library 
+              <span role="img" aria-label="books">📚</span>
+              </h1>
+              {finalBookList !== null  ? 
               null :
-              <p> Welcome! It looks like you do not have any current books in your library!<br/> To get started tracking, add a new book <a href="/books/new">here</a>!</p>
+              <p> Welcome! It looks like you do not have any current books in your library!<br/> To get started tracking, add a new book <a href="/books/new">here</a>!
+              <br/> <br/>
+              </p>
             }
-            </Box> <br/> <br/>
+            </Box>
             <Box>
             <Filters 
               sortBy={sortBy}
@@ -83,9 +89,11 @@ if(loggedIn) {
             />
             </Box>
           </Container>
+          <Container>
         <Grid container spacing={2}>
           {finalBookList}
         </Grid>
+        </Container>
       </React.Fragment>
     )
   } else {

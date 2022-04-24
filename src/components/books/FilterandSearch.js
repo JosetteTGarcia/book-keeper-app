@@ -26,9 +26,11 @@ function Filters({ sortBy, onChangeSortBy, onChange, showAllBooks}){
     <div>
     <FormGroup>
               <FormControlLabel 
-              control={<Switch />} 
-              checked={showAllBooks}
-              label="Show All Books" onClick={handleSwitchClick}/>
+                control={<Switch />} 
+                checked={showAllBooks}
+                label="Show All Books" 
+                onClick={handleSwitchClick}
+              />
             </FormGroup>
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
             <InputLabel id="demo-select-small">Sory By</InputLabel>
