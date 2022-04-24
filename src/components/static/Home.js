@@ -21,27 +21,7 @@ function Home({
   const [showAllBooks, setShowAllBooks] = useState(false)
   const [selectedBook, setSelectedBook] = useState(null);
   
-  
 
-
-//   useEffect(() => {
-//     const sortedBooksList = books.sort((book1 , book2) => {
-//     console.log("I'm in")
-//     if (sortBy === "rating") {
-//       console.log("hello, i'm rating")
-//       return book2.rating - book2.rating;
-//     } else if (sortBy === "oldest"){
-//       console.log("hello, i'm oldest")
-//       return book1.dateStarted - book2.dateStarted;
-//     } else {
-//       console.log("hello, i'm newest")
-//       return book1.dateStarted - book2.dateStarted;
-//     }
-//   })
-//   onFilterChange(sortedBooksList);
-// },[sortBy])
-
-  
 
 
  
