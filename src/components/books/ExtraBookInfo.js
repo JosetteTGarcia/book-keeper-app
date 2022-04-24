@@ -1,6 +1,6 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
-import Rating from '@mui/material/Rating';
+
 
 function ExtraBookInfo({ book }) {
   
@@ -9,13 +9,16 @@ function ExtraBookInfo({ book }) {
     {(book.completed) ?  
       <>
        <Typography variant="body2" color="text.secondary">
-        Date Started: {book.dateStarted}
+        Date Started: <br/>
+        {book.dateStarted}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Date Completed: {book.dateCompleted}
+        Date Completed: <br/>
+        {book.dateCompleted}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Notes: {book.comments}
+          Notes: <br/>
+          {book.comments}
         </Typography>
     </>
     : 

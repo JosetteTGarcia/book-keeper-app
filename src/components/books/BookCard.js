@@ -40,13 +40,20 @@ function BookCard({
     });
   }
 
-  
+  function convertFirstLetterToUpperCase(str) {
+    const splitStr = str.toLowerCase().split(' ');
+    for (let i = 0; i < splitStr.length; i++) {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+    }
+   
+    return splitStr.join(' '); 
+ }
 
   return (
  <> 
   {!editBook ? 
   
-    <Card sx={{ maxWidth: 200}}>
+    <Card sx={{ maxWidth: 200}} variant="outlined">
     <CardActionArea onClick={handleMainCardClick}>
       <CardMedia
         component="img"
@@ -58,10 +65,10 @@ function BookCard({
       <Typography gutterBottom variant="h5" component="div">
       {book.title}
     </Typography>
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body1" color="text.secondary">
       {book.author}
     </Typography>
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color={(book.completed) ? "green": "#ff4d4d"}>
       {(book.completed) ? <>Completed </>: <>Currently Reading </>}
     </Typography>
     {(book.completed) ? <>

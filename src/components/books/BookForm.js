@@ -21,6 +21,7 @@ function BookForm({currentUser, loggedIn, addBook}){
     comments: ""
   })
 
+
   useEffect(() => {
     if(loggedIn) {
       setFormData({

@@ -66,8 +66,9 @@ if(loggedIn) {
     return (
       <React.Fragment>
         <CssBaseline />
+        <Container fixed sx={{ bgcolor: '#eeeae7', flexGrow: 1}}>
           <Container fixed>
-            <Box sx={{ bgcolor: 'white', height: '10vh', flexGrow: 1}}>
+            <Box sx={{ bgcolor: '#eeeae7', height: '10vh', flexGrow: 1}}>
               <h1>
               <span role="img" aria-label="books">📚</span>
                 {currentUser.username}'s Library 
@@ -80,7 +81,7 @@ if(loggedIn) {
               </p>
             }
             </Box>
-            <Box>
+            <Box fixed>
             <Filters 
               sortBy={sortBy}
               onChangeSortBy={onFilterChange}
@@ -89,10 +90,11 @@ if(loggedIn) {
             />
             </Box>
           </Container>
-          <Container>
+          <Container fixed>
         <Grid container spacing={2}>
           {finalBookList}
         </Grid>
+        </Container>
         </Container>
       </React.Fragment>
     )

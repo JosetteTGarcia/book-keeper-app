@@ -35,8 +35,8 @@ function NavBar({loggedIn, logoutUser}){
   
   return (
 
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 }} >
+      <AppBar position="static" style={{ background: '#557788' }}>
         <Toolbar>
           <IconButton
             size="large"
