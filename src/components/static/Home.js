@@ -14,41 +14,51 @@ function Home({
   currentUser, 
   loggedIn, 
   books, 
-  onEditBook}
+  onEditBook,
+  onFilterChange,
+  sortBy}
   ){
   const [showAllBooks, setShowAllBooks] = useState(false)
-  const [sortBy, setSortBy] = useState("");
   const [selectedBook, setSelectedBook] = useState(null);
   
   
 
 
+//   useEffect(() => {
+//     const sortedBooksList = books.sort((book1 , book2) => {
+//     console.log("I'm in")
+//     if (sortBy === "rating") {
+//       console.log("hello, i'm rating")
+//       return book2.rating - book2.rating;
+//     } else if (sortBy === "oldest"){
+//       console.log("hello, i'm oldest")
+//       return book1.dateStarted - book2.dateStarted;
+//     } else {
+//       console.log("hello, i'm newest")
+//       return book1.dateStarted - book2.dateStarted;
+//     }
+//   })
+//   onFilterChange(sortedBooksList);
+// },[sortBy])
 
-  const booksFiltered= books
-    .filter(book => (showAllBooks ? book : book.completed === false ))
-    .sort((book1 , book2) => {
-      if (sortBy === "rating") {
-        return book2.rating - book2.rating
-      } else if (sortBy === "oldest"){
-        return book2.dateStarted - book1.dateStarted;
-      } else {
-        return book1.dateStarted - book2.dateStarted;
-      }
-    })
+  
 
 
  
-    const finalBookList = booksFiltered.map((book) => (
+    const finalBookList = books
+      .filter(book => (showAllBooks ? book : book.completed === false ))
+      .map((book) => (
       <Grid item xs={12} sm={6} md= {4} key={book.id}>
         <BookCard 
         key={book.id} 
         book={book} 
-        onEditBook = {onEditBook}
+        onBookEdit = {onEditBook}
         selectedBook={selectedBook}
         onSelectBook={setSelectedBook}
         /> 
       </Grid>
     ))
+  
  
 
 
@@ -62,7 +72,7 @@ if(loggedIn) {
             </Box>
             <Filters 
               sortBy={sortBy}
-              onChangeSortBy={setSortBy}
+              onChangeSortBy={onFilterChange}
               onChange={setShowAllBooks}
               showAllBooks={showAllBooks}
             />

@@ -13,7 +13,7 @@ function EditBookCard({book, onChangeForm, onBookEdit, onComplete}){
 
 
   function handleCompletedChange(event){
-    onChangeForm(event.target.name, event.target.value === !book.completed)
+    onChangeForm(event.target.name, !book.completed)
       
   }
     
@@ -104,7 +104,8 @@ function EditBookCard({book, onChangeForm, onBookEdit, onComplete}){
         <Checkbox 
           id="completed"
           name="completed"
-          defaultValue={book.completed}
+          value={book.completed}
+          checked={book.completed}
           label="Completed Book?" 
           onChange={handleCompletedChange}
         /> 

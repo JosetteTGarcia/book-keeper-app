@@ -12,6 +12,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false);
   const [bookData, setBookData] = useState([])
+  const [sortBy, setSortBy] = useState("");
   
 
 
@@ -47,7 +48,7 @@ function App() {
       .then(resp => resp.json())
       .then(data => loginUser(data))
     }
-  },[loggedIn])
+  },[loggedIn, bookData])
 
   function handleEditBook(updatedBook) {
     const updatedBooks = bookData.map((book) =>
@@ -55,6 +56,23 @@ function App() {
     );
     setBookData(updatedBooks);
   }
+
+  useEffect(() => {
+    const sortedBooksList = [...bookData].sort((book1 , book2) => {
+    console.log("I'm in")
+    if (sortBy === "rating") {
+      console.log("hello, i'm rating")
+      return book2.rating - book1.rating;
+    } else if (sortBy === "oldest"){
+      console.log("hello, i'm oldest")
+      return new Date(book1.dateStarted) - new Date(book2.dateStarted);
+    } else {
+      console.log("hello, i'm newest")
+      return new Date(book2.dateStarted) - new Date(book1.dateStarted);
+    }
+  })
+  setBookData(sortedBooksList)
+},[sortBy])
 
 
 
@@ -67,6 +85,8 @@ function App() {
             currentUser={currentUser}  
             loggedIn={loggedIn} 
             books={bookData}
+            sortBy={sortBy}
+            onFilterChange={setSortBy}
             onEditBook = {handleEditBook}
             />} 
           />
