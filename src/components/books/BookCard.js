@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Rating from '@mui/material/Rating';
 import { Button, CardActionArea, CardActions} from '@mui/material';
 
 
@@ -63,9 +64,14 @@ function BookCard({
     <Typography variant="body2" color="text.secondary">
       {(book.completed) ? <>Completed </>: <>Currently Reading </>}
     </Typography>
-    <Typography variant="body2" color="text.secondary">
-      {book.dateStarted}
-    </Typography>
+    {(book.completed) ? <>
+          <Rating
+              type="number"
+              name="rating"
+              value={book.rating}
+              id="rating"
+            /> </>
+            : null}
     {showDetails ? <ExtraBookInfo book={book} /> : null}
       </CardContent>
     </CardActionArea>

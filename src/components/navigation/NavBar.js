@@ -47,7 +47,9 @@ function NavBar({loggedIn, logoutUser}){
           >
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Book Keeper App
+          Book Keeper App 
+          <span role="img" aria-label="books">📖</span>
+          <span role="img" aria-label="books">👓</span>
           </Typography>
           { loggedIn ? loggedInLinks() : loggedOutLinks()}
           </Toolbar>

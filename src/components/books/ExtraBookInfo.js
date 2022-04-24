@@ -8,17 +8,14 @@ function ExtraBookInfo({ book }) {
     <>
     {(book.completed) ?  
       <>
-        <Typography variant="body2" color="text.secondary">
-          {book.dateCompleted}
+       <Typography variant="body2" color="text.secondary">
+        Date Started: {book.dateStarted}
         </Typography>
-        <Rating
-              type="number"
-              name="rating"
-              value={book.rating}
-              id="rating"
-            />
         <Typography variant="body2" color="text.secondary">
-          {book.comments}
+        Date Completed: {book.dateCompleted}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Notes: {book.comments}
         </Typography>
     </>
     : 
