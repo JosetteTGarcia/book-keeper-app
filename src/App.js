@@ -48,7 +48,7 @@ function App() {
       .then(resp => resp.json())
       .then(data => loginUser(data))
     }
-  },[loggedIn, bookData])
+  },[loggedIn, bookData, loginUser])
 
   const addBook = book => {
     // adds the book to the state

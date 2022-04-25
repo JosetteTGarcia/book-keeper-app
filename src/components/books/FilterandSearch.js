@@ -20,6 +20,7 @@ function Filters({ sortBy, onChangeSortBy, onChange, showAllBooks}){
 
   function handleSwitchClick(event){
     onChange(event.target.checked)
+    console.log(event.target.checked, typeof event.target.checked)
   }
   
   return (

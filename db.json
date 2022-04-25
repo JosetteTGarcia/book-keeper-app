@@ -24,7 +24,7 @@
       "title": "East of Eden",
       "author": "John Steinbeck",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg/800px-East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg",
-      "completed": true,
+      "completed": false,
       "dateStarted": "2022-04-01",
       "dateCompleted": "2022-04-20",
       "rating": 4,
