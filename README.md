@@ -21,6 +21,7 @@ This app aims to absolve readers of the burden of remembering all of their compl
 ## How to Use
 1. On initial render, a user will be asked to `Log in` or `Create Account` using the navigation links at the top
   - Note: Sign Up & Login does not ask for password
+    > ![image](src/GIFS/Login:signup.gif)
 2. On successful login or sign up, you will be directed to the `Home Page`.
    If you are new to the app, you will be instructed to add your first book through the `Add New Book` link in navigation
 4. `Add New Book` will ask for the following initial informtion about the book being added:
