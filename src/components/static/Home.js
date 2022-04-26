@@ -84,14 +84,18 @@ if(loggedIn) {
       <React.Fragment>
       <CssBaseline />
       <Container fixed>
-        <Box sx={{ bgcolor: 'white', height: '100vh'}}>
+        <Box sx={{ bgcolor: '#eeeae7', height: '20vh'}}>
           <h1>
-            Welcome to Book Keeper!
+            Welcome to Book Keeper! <span role="img" aria-label="books">📚</span>
           </h1>
-          <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
-            <p>
-              If you have an account, please log in. If you are new to Book Keeper, please make an account to get started!
-            </p>
+          <h4>
+            Let's get stared on your digital library.
+          </h4>
+          <Box sx={{ bgcolor: '#eeeae7', height: '20vh' }}>
+            <h7>
+              If you have an account, please <a href="/login">log in</a>. <br/>
+              If you are new to Book Keeper, please <a href="/signup">create an account</a> to get started!
+            </h7>
           </Box>
         </Box>
       </Container>
