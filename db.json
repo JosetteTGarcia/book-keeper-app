@@ -24,11 +24,11 @@
       "title": "East of Eden",
       "author": "John Steinbeck",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg/800px-East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg",
-      "completed": false,
+      "completed": true,
       "dateStarted": "2022-04-01",
       "dateCompleted": "2022-04-20",
-      "rating": 4,
-      "comments": "comments"
+      "rating": 3,
+      "comments": "Slow but good!"
     },
     {
       "id": 2,
@@ -113,6 +113,18 @@
       "rating": 0,
       "comments": "",
       "id": 8
+    },
+    {
+      "user_id": 1,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553383690l/2657.jpg",
+      "completed": false,
+      "dateStarted": "2022-04-20",
+      "dateCompleted": "",
+      "rating": 0,
+      "comments": "",
+      "id": 9
     }
   ]
 }
