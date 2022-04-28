@@ -47,11 +47,11 @@
       "title": "A Court of Thorns and Roses",
       "author": "Sarah J. Maas",
       "image": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781408857861.jpg",
-      "completed": false,
-      "dateStarted": "2022-04-03",
-      "dateCompleted": "2022-04-20",
-      "rating": 1,
-      "comments": "Love this book! x2-",
+      "completed": true,
+      "dateStarted": "2022-04-20",
+      "dateCompleted": "2022-04-25",
+      "rating": 5,
+      "comments": "Loved this book!",
       "id": 3
     },
     {
@@ -117,13 +117,13 @@
     {
       "user_id": 1,
       "title": "To Kill a Mockingbird",
-      "author": "Harper Lee",
+      "author": "Harper Lee ",
       "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553383690l/2657.jpg",
       "completed": false,
-      "dateStarted": "2022-04-20",
+      "dateStarted": "2022-04-25",
       "dateCompleted": "",
       "rating": 0,
-      "comments": "",
+      "comments": "edit",
       "id": 9
     }
   ]

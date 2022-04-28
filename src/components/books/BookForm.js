@@ -21,9 +21,9 @@ function BookForm({currentUser, loggedIn, addBook}){
     comments: ""
   })
 
-
+//sets userID for any form submissions so it connects to the right user
   useEffect(() => {
-    if(loggedIn) {
+    if(loggedIn) { 
       setFormData({
         ...formData,
         user_id: currentUser.id 
@@ -31,6 +31,7 @@ function BookForm({currentUser, loggedIn, addBook}){
     }
   }, [currentUser, loggedIn])
 
+  //On change, setting the correct states for the form
   function handleChange(e){
      if(e.target.name === "completed"){
       setFormData({
@@ -51,7 +52,7 @@ function BookForm({currentUser, loggedIn, addBook}){
      }
     
     
-
+//On submit, post the form data
   function handleSubmit(e){
     e.preventDefault();
     fetch(baseURL + "/books", {
@@ -180,14 +181,5 @@ function BookForm({currentUser, loggedIn, addBook}){
 
 export default BookForm;
 
-// "id": 1,
-// "user_id": 1,
-// "title": "East of Eden",
-// "author": "John Steinbeck",
-// "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg/800px-East_of_Eden_%281952_1st_ed_dust_jacket%29.jpg",
-// "completed": true,
-// "dateStarted": "date",
-// "dateCompleted": "date2",
-// "starReview": "stars",
-// "comments": "comments"
+
 

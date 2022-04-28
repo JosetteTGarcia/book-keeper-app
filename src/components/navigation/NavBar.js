@@ -9,10 +9,13 @@ import IconButton from '@mui/material/IconButton';
 
 function NavBar({loggedIn, logoutUser}){
 
+  //calls log out function on logout click
   const logout = e => {
     e.preventDefault()
     logoutUser()
   }
+
+
   const loggedInLinks = () => {
     return (
 
@@ -51,7 +54,7 @@ function NavBar({loggedIn, logoutUser}){
           <span role="img" aria-label="books">📖</span>
           <span role="img" aria-label="books">👓</span>
           </Typography>
-          { loggedIn ? loggedInLinks() : loggedOutLinks()}
+          { loggedIn ? loggedInLinks() : loggedOutLinks()} 
           </Toolbar>
       </AppBar>
     </Box>

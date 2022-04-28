@@ -24,7 +24,7 @@ function Home({
 
 
 
- 
+ //Filters and maps books based on if showing all books is toggled on or off 
     const finalBookList = books
       .filter(book => (showAllBooks ? book : book.completed === false ))
       .map((book) => (
@@ -41,7 +41,8 @@ function Home({
   
  
 
-
+// returns different home page based on if logged in or not
+//will also return a warning if there are no books available for a new user 
 if(loggedIn) {
     return (
       <React.Fragment>
@@ -92,10 +93,10 @@ if(loggedIn) {
             Let's get stared on your digital library.
           </h4>
           <Box sx={{ bgcolor: '#eeeae7', height: '20vh' }}>
-            <h7>
+            <h6>
               If you have an account, please <a href="/login">log in</a>. <br/>
               If you are new to Book Keeper, please <a href="/signup">create an account</a> to get started!
-            </h7>
+            </h6>
           </Box>
         </Box>
       </Container>

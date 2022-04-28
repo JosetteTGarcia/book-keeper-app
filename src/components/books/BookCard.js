@@ -21,18 +21,18 @@ function BookCard({
   const [editBook, setEditBook] = useState(false)
  
 
-
+//Allows extra details to show
   function handleMainCardClick() {
     setShowDetails((prevShowDetails) => !prevShowDetails);
   }
   
-
+//Sets the current book so edit form only shows on that book and data is sent to the form
   const handleClick = () => {
     onSelectBook(book)
     setEditBook(!editBook)
   }
 
- 
+ //setting the values on the form to user inputs, this shows the changes they're typing
   function handleEditForm(name, value) {
     onSelectBook({
       ...selectedBook,
@@ -40,14 +40,15 @@ function BookCard({
     });
   }
 
-  function convertFirstLetterToUpperCase(str) {
-    const splitStr = str.toLowerCase().split(' ');
-    for (let i = 0; i < splitStr.length; i++) {
-        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
-    }
+
+//   function convertFirstLetterToUpperCase(str) {
+//     const splitStr = str.toLowerCase().split(' ');
+//     for (let i = 0; i < splitStr.length; i++) {
+//         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+//     }
    
-    return splitStr.join(' '); 
- }
+//     return splitStr.join(' '); 
+//  }
 
   return (
  <> 
